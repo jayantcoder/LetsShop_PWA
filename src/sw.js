@@ -6,7 +6,7 @@ self.addEventListener('install', (event) => {
     event.waitUntil(self.clients.claim());
   });
   
-  // Precache manifest injection point for vite-plugin-pwa
+
   self.__WB_MANIFEST;
   
   self.addEventListener('push', (event) => {
@@ -18,9 +18,9 @@ self.addEventListener('install', (event) => {
       return;
     }
   
-    const title = data.notification?.title || 'ShopNow Notification';
+    const title = data.notification?.title || 'LetsShop Notification';
     const options = {
-      body: data.notification?.body || 'Check out the latest products in ShopNow.',
+      body: data.notification?.body || 'Check out the latest products in LetsShop.',
       icon: '/icons/icon-192x192.png',
       badge: '/icons/icon-192x192.png',
     };

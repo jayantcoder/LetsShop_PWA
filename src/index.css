@@ -41,7 +41,7 @@
 
   .navbar .flex {
     flex-direction: column;
-    /* space-x-0; */
+  
     gap: 1rem;
     margin-top: 1rem;
   }

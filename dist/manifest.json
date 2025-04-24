@@ -1,21 +1,21 @@
 {
+    "name": "LetsShop",
     "short_name": "LetsShop",
-    "name": "LetsShop PWA",
+    "description": "A Progressive Web App for shopping premium products",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f3f4f6",
+    "theme_color": "#1e40af",
     "icons": [
       {
         "src": "/icons/icon-192x192.png",
-        "type": "image/png",
-        "sizes": "192x192"
+        "sizes": "192x192",
+        "type": "image/png"
       },
       {
         "src": "/icons/icon-512x512.png",
-        "type": "image/png",
-        "sizes": "512x512"
+        "sizes": "512x512",
+        "type": "image/png"
       }
-    ],
-    "start_url": "/",
-    "display": "standalone",
-    "theme_color": "#1e40af",
-    "background_color": "#ffffff"
+    ]
   }
-  

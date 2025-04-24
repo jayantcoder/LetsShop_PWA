@@ -1,6 +1,6 @@
 {
-    "name": "ShopNow",
-    "short_name": "ShopNow",
+    "name": "LetsShop",
+    "short_name": "LetsShop",
     "description": "A Progressive Web App for shopping premium products",
     "start_url": "/",
     "display": "standalone",
@@ -17,6 +17,5 @@
         "sizes": "512x512",
         "type": "image/png"
       }
-    ],
-    "scope": "/"
+    ]
   }

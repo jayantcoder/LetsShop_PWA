@@ -1,12 +1,12 @@
-ShopNow PWA
-A Progressive Web App (PWA) built with React and Vite, featuring a product catalog, product details, contact page, and dashboard. The app includes offline support via vite-plugin-pwa and push notifications powered by Firebase Cloud Messaging.
+LetsShop PWA
+A Progressive Web App built with React and Vite, featuring a product catalog, detailed product views, a contact page, and a user dashboard. LetsShop offers offline support through vite-plugin-pwa and push notifications via Firebase Cloud Messaging, supporting both foreground and background notifications.
 Features
 
-Browse products with a carousel and grid view
-View detailed product information
+Product browsing with carousel and grid layouts
+Detailed product information
 Contact form for user inquiries
-Dashboard for user preferences
-Offline support via service worker
+User dashboard for preferences
+Offline access via service worker
 Push notifications for updates
 Installable as a PWA on mobile and desktop
 
@@ -15,13 +15,13 @@ Prerequisites
 
 Node.js (>= 14.x)
 npm or yarn
-A modern browser supporting PWAs (e.g., Chrome, Edge, Safari)
-A Firebase project for push notifications
+Modern browser (Chrome, Edge, Safari)
+Firebase project with Cloud Messaging enabled
 
 Installation
 
-Clone the repository:git clone https://github.com/your-username/shopnow-pwa.git
-cd shopnow-pwa
+Clone the repository:git clone https://github.com/your-username/letsshop-pwa.git
+cd letsshop-pwa
 
 
 Install dependencies:npm install
@@ -33,93 +33,68 @@ Start the development server:npm run dev
 
 Configuring Firebase for Push Notifications
 
-Create a Firebase project in the Firebase Console.
+Set up a Firebase project in the Firebase Console.
 Add a web app and copy the Firebase configuration to src/firebase-config.js.
-In Project Settings > Cloud Messaging > Web Push certificates, click Generate key pair.
-Copy the Public VAPID Key and paste it into src/push-notifications.js under vapidKey.
-Test push notifications by subscribing in the browser and sending a test notification via Firebase Console or a backend.
-
-Example firebase-config.js:
-const firebaseConfig = {
-  apiKey: 'YOUR_API_KEY',
-  authDomain: 'YOUR_AUTH_DOMAIN',
-  projectId: 'YOUR_PROJECT_ID',
-  storageBucket: 'YOUR_STORAGE_BUCKET',
-  messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-  appId: 'YOUR_APP_ID',
-};
+In Project Settings > Cloud Messaging > Web Push certificates, generate a key pair.
+Copy the Public VAPID Key to src/push-notifications.js under vapidKey.
+Test notifications by running the app, allowing notifications, and sending a test message via Firebase Console (Cloud Messaging > Send your first message).
 
 Configuring Vite PWA Plugin
-The vite-plugin-pwa is configured in vite.config.js. Steps to customize:
+The vite-plugin-pwa is configured in vite.config.js with a custom service worker (src/sw.js) for background notifications. To customize:
 
-Ensure manifest in vite.config.js matches your app’s branding (name, icons, colors).
-Verify icons exist in public/icons/ (icon-192x192.png, icon-512x512.png).
-Update workbox.globPatterns to cache additional assets if needed.
+Update manifest.json in /public for branding (name, icons, colors).
+Verify icons in /public/icons/ (icon-192x192.png, icon-512x512.png).
+Adjust workbox.globPatterns in vite.config.js for additional asset caching.
 Test offline support using Chrome DevTools (Network > Offline).
+Test background notifications by closing the app tab and sending a notification via Firebase Console.
 
-Example vite.config.js:
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { VitePWA } from 'vite-plugin-pwa';
+Testing Push Notifications
 
-export default defineConfig({
-  plugins: [
-    react(),
-    VitePWA({
-      registerType: 'autoUpdate',
-      devOptions: { enabled: true },
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
-      },
-      manifest: {
-        name: 'ShopNow',
-        short_name: 'ShopNow',
-        description: 'A Progressive Web App for shopping premium products',
-        start_url: '/',
-        display: 'standalone',
-        background_color: '#f3f4f6',
-        theme_color: '#1e40af',
-        icons: [
-          { src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
-          { src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
-        ],
-      },
-    }),
-  ],
-});
+Run the app:npm run dev
+
+
+Open in Chrome, allow notifications, and verify the FCM token in the console.
+In Firebase Console, go to Cloud Messaging > Send your first message.
+Enter a title (e.g., "New Product Alert!") and body (e.g., "Explore new products in LetsShop.").
+Select the web app and send the test notification.
+Verify notifications:
+Foreground: App open.
+Background: App tab closed, browser running.
+
+
+Clicking a notification opens the app at /.
 
 Mobile Installation
-To install the PWA on a mobile device:
 
-Open the app in a supported browser (e.g., Chrome on Android, Safari on iOS).
-Look for the "Add to Home Screen" prompt or manually add via the browser menu.
-Tap "Add" to install the app.
-The app will appear on your home screen and run in standalone mode.
+Open the app in a supported browser (Chrome on Android, Safari on iOS).
+Use the "Add to Home Screen" prompt or browser menu to add.
+Tap "Add" to install.
+The app appears on the home screen in standalone mode.
 
 Screenshots
 
-Home Screen: Displays the product carousel and grid.
-Product Details: Shows detailed product information.
-Add to Home Screen Prompt: Browser prompt for installation.
-Installed PWA: App icon on the home screen.
+Home Screen: Product carousel and grid.
+Product Details: Detailed product view.
+Add to Home Screen Prompt: Browser installation prompt.
+Installed PWA: App icon on home screen.
 
-Note: Replace screenshots/ with actual screenshot files in your repository.
 Deployment
 
-Build the app for production:npm run build
+Build for production:npm run build
 
 
 Preview the build:npm run preview
 
 
-Deploy to a platform like Netlify, Vercel, or GitHub Pages.
-Update the GitHub repository URL in your assignment sheet:https://github.com/your-username/shopnow-pwa
+Deploy to Netlify, Vercel, or GitHub Pages.
+Update the GitHub repository URL in your assignment:https://github.com/your-username/letsshop-pwa
 
 
 
 Notes
 
-Ensure HTTPS is enabled for PWA features in production.
-Test the PWA using Lighthouse in Chrome DevTools for performance and PWA compliance.
-The Firebase backend is optional; use Firebase Console to send test notifications or set up a server with Firebase Admin SDK.
+Use HTTPS in production for PWA features (localhost or ngrok for local testing).
+Test with Lighthouse in Chrome DevTools for PWA compliance.
+Notifications are sent via Firebase Console; background notifications are handled by src/sw.js.
+Ensure /public/icons/icon-192x192.png and /public/icons/icon-512x512.png exist.
 

@@ -8,21 +8,21 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       devOptions: {
-        enabled: true, // Enable service worker in development
-        type: 'module', // Ensure ES module support for dev-sw.js
+        enabled: true, 
+        type: 'module', 
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
       },
       injectManifest: {
-        injectionPoint: 'self.__WB_MANIFEST', // Match sw.js precache injection
+        injectionPoint: 'self.__WB_MANIFEST', 
       },
       srcDir: 'src',
       filename: 'sw.js',
       strategies: 'injectManifest',
       manifest: {
-        name: 'ShopNow',
-        short_name: 'ShopNow',
+        name: 'LetsShop',
+        short_name: 'LetsShop',
         description: 'A Progressive Web App for shopping premium products',
         start_url: '/',
         display: 'standalone',
