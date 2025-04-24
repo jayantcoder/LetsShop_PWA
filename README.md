@@ -20,7 +20,7 @@ Firebase project with Cloud Messaging enabled
 
 Installation
 
-Clone the repository:git clone https://github.com/your-username/letsshop-pwa.git
+Clone the repository:git clone https://github.com/jayantcoder/LetsShop_PWA.git
 cd letsshop-pwa
 
 
@@ -87,7 +87,7 @@ Preview the build:npm run preview
 
 
 Deploy to Netlify, Vercel, or GitHub Pages.
-Update the GitHub repository URL in your assignment:https://github.com/your-username/letsshop-pwa
+Update the GitHub repository URL in your assignment:https://github.com/jayantcoder/LetsShop_PWA.git
 
 
 
