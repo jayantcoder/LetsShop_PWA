@@ -1,0 +1,28 @@
+Node.js dependencies
+
+node_modules/ npm-debug.log yarn-error.log
+
+Vite build output
+
+/dist/ /dist-ssr/
+
+Environment variables and sensitive files
+
+.env .env.local .env.development .env.production
+
+Firebase sensitive data (if applicable)
+
+firebase.json .firestore.rules .storage.rules
+
+Editor and OS files
+
+.DS_Store .vscode/ .idea/ *.suo .ntvs*.njsproj *.sln *.swp
+
+Logs and temporary files
+
+*.log *.tmp *.cache coverage/
+
+Miscellaneous
+
+*.bak *.swp *~
+node_modules
